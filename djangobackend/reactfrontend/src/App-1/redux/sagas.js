@@ -13,7 +13,7 @@ const {
 
 
 function* listItemsSaga(request, action) {
-    const endpoint = `http://127.0.0.1:8000/api/todotasks/`
+    const endpoint = `/api/todotasks/`
     let resp = yield call(axios.get, endpoint);
     yield put(listItemsSuccess(resp.data));
 }
@@ -23,7 +23,7 @@ function* watchListItemsSaga(request) {
 
 
 function* listItemPostSaga(request, action) {
-    const endpoint = `http://127.0.0.1:8000/api/todotasks/`
+    const endpoint = `/api/todotasks/`
     const { item } = action;
     const payload = { name: item }
     try{
@@ -40,7 +40,7 @@ function* watchListItemPostSaga(request) {
 
 function* listItemsDeleteSaga(request, action) {
     const { id } = action;
-    const endpoint = `http://127.0.0.1:8000/api/todotasks/${id}`
+    const endpoint = `/api/todotasks/${id}`
     yield call(axios.delete, endpoint);
     yield put(listItems());
 }
@@ -51,7 +51,7 @@ function* watchListItemsDeleteSaga(request) {
 
 function* listItemUpdateSaga(request, action) {
     const { id, item } = action; 
-    const endpoint = `http://127.0.0.1:8000/api/todotasks/${id}/`
+    const endpoint = `/api/todotasks/${id}/`
     const payload = { name: item }
     try{
         yield call(axios.put, endpoint, payload);

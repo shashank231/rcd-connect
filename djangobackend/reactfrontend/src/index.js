@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import store from './redux/store';                     // local REDUX folder
 import { Provider } from 'react-redux';                // REDUX
-import { BrowserRouter } from 'react-router-dom';      // REACT-ROUTER
+import { HashRouter } from 'react-router-dom';      // REACT-ROUTER
 
 import App from './App';
 import './index.css';
@@ -14,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <Provider store={store} >
-     <BrowserRouter> 
+     <HashRouter> 
        <App />
-     </BrowserRouter>
+     </HashRouter>
   </Provider>
 );
 
